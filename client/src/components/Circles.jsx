@@ -3,22 +3,19 @@ import Circle from './Circle.jsx';
 
 export default function Circles() {
   const [score, setScore] = useState(0);
-  const [positions, setPositions] = useState([
-    { x: 210, y: window.innerHeight },
-    { x: 200, y: 200 },
-  ]);
+  const [positions, setPositions] = useState([]);
 
-  //   useEffect(() => {
-  //     const id = setInterval(() => {
-  //       const x = Math.floor(Math.random() * window.innerWidth);
-  //       const y = Math.floor(Math.random() * window.innerHeight);
-  //       setPositions((prev) => [...prev, { x, y }]);
-  //     }, 1000);
+  useEffect(() => {
+    const id = setInterval(() => {
+      const x = Math.floor(Math.random() * window.innerWidth);
+      const y = Math.floor(Math.random() * window.innerHeight);
+      setPositions((prev) => [...prev, { x, y }]);
+    }, 1000);
 
-  //     return () => {
-  //       clearInterval(id);
-  //     };
-  //   }, []);
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
 
   const handleRemove = (i) => {
     const newPositions = [...positions];
